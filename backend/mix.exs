@@ -31,7 +31,7 @@ defmodule Twt.MixProject do
   # Specifies your project dependencies.
   #
   # Type `mix help deps` for examples and options.
-  defp deps do
+    defp deps do
     [
       {:phoenix, "~> 1.5.6"},
       {:phoenix_ecto, "~> 4.1"},
@@ -42,7 +42,8 @@ defmodule Twt.MixProject do
       {:telemetry_poller, "~> 0.4"},
       {:gettext, "~> 0.11"},
       {:jason, "~> 1.0"},
-      {:plug_cowboy, "~> 2.0"}
+      {:plug_cowboy, "~> 2.0"},
+      {:cors_plug, "~> 1.5"},
     ]
   end
 
