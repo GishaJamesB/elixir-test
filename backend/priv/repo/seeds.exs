@@ -9,3 +9,14 @@
 #
 # We recommend using the bang functions (`insert!`, `update!`
 # and so on) as they will fail if something goes wrong.
+
+alias Twt.Repo
+  alias Twt.Users
+
+  Repo.insert! %Users{
+    name: "user-1"
+  }
+
+  Repo.insert! %Users{
+    name: "user-2"
+  }
