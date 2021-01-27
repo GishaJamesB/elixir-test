@@ -9,6 +9,7 @@ defmodule Twt.Api do
   alias Twt.Users
   alias Twt.Repo
   alias Twt.Tweets
+  alias Twt.Retweets
 
   def create_users(attrs \\ %{}) do
     %Users{}
@@ -19,6 +20,12 @@ defmodule Twt.Api do
   def create_tweet(attrs \\ %{}) do
     %Tweets{}
     |> Tweets.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  def create_retweet(attrs \\ %{}) do
+    %Retweets{}
+    |> Retweets.changeset(attrs)
     |> Repo.insert()
   end
 end
