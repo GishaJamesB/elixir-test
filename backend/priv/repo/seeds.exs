@@ -12,11 +12,33 @@
 
 alias Twt.Repo
   alias Twt.Users
+  alias Twt.Tweets
 
-  Repo.insert! %Users{
-    name: "user-1"
-  }
+Repo.insert! %Users{
+  name: "user-1"
+}
 
-  Repo.insert! %Users{
-    name: "user-2"
-  }
+Repo.insert! %Users{
+  name: "user-2"
+}
+
+Repo.insert! %Tweets{
+    message: "Elixir gives great developer experience",
+    user_id: 2
+}
+
+Repo.insert! %Tweets{
+    message: "Is NodeJS really single theaded?",
+    user_id: 2
+}
+
+Repo.insert! %Tweets{
+    message: "2 million connections in a single server. Is that real?",
+    user_id: 1
+}
+
+Repo.insert! %Tweets{
+    message: "Serverless framework - Infra as code, good to explore?",
+    user_id: 1
+}
+
