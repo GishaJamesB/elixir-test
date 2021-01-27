@@ -4,7 +4,7 @@ defmodule Twt.Repo.Migrations.AddTweetsTable do
   def change do
     create table(:tweets) do
       add :message, :string , size: 140
-      add :user_id, :integer
+      add :user_id, references(:users, column: :id)
 
       timestamps()
     end
