@@ -8,10 +8,17 @@ defmodule Twt.Api do
   """
   alias Twt.Users
   alias Twt.Repo
+  alias Twt.Tweets
 
   def create_users(attrs \\ %{}) do
     %Users{}
     |> Users.changeset(attrs)
+    |> Repo.insert()
+  end
+
+  def create_tweet(attrs \\ %{}) do
+    %Tweets{}
+    |> Tweets.changeset(attrs)
     |> Repo.insert()
   end
 end
