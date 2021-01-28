@@ -59,7 +59,9 @@ export default function Home() {
             {tweet.message} <br />
             <div className="">
               -- Posted by {tweet.posted_by} <br />
-              <Badge variant="primary" onClick={() => { retweet(tweet) }}>Retweet</Badge>
+              <Badge variant="primary" onClick={() => { retweet(tweet) }} style={{ cursor: "pointer"}}>
+                Retweet ({tweet.retweets})
+              </Badge>
             </div>
           <hr />
         </div>
