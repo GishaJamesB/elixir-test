@@ -15,7 +15,7 @@ export default function Home() {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ message: newTweet, user_id: 1 })
-  };
+    };
     fetch('http://localhost:4000/api/tweets', requestOptions)
     setNewTweet('')
     getTweets()
@@ -29,6 +29,18 @@ export default function Home() {
 
   const handleChange = (event) => {
     setNewTweet(event.target.value)
+  }
+
+  const retweet = (data) => {
+    console.log(data)
+    const requestOptions = {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ tweet_id: data.message_id, user_id: 1 })
+    };
+    fetch('http://localhost:4000/api/retweets', requestOptions)
+    setNewTweet('')
+    getTweets()
   }
 
   return (
@@ -47,7 +59,7 @@ export default function Home() {
             {tweet.message} <br />
             <div className="">
               -- Posted by {tweet.posted_by} <br />
-              <Badge variant="primary">Retweet</Badge>
+              <Badge variant="primary" onClick={() => { retweet(tweet) }}>Retweet</Badge>
             </div>
           <hr />
         </div>
