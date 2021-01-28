@@ -4,8 +4,8 @@ use Mix.Config
 config :twt, Twt.Repo,
   username: "postgres",
   password: "postgres",
-  database: "twt_dev",
-  hostname: "localhost",
+  database: "twitter_api",
+  hostname: "postgres",
   show_sensitive_data_on_connection_error: true,
   pool_size: 10
 

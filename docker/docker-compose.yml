@@ -1,0 +1,29 @@
+version: '3'
+services:
+  postgres:
+    image: postgres:10.1
+    ports:
+      - "5432:5432"
+
+  server:
+    build: ../backend
+    command: [ "./bin/start.sh"]
+    links:
+      - postgres
+    depends_on:
+      - postgres
+    environment:
+      - MIX_ENV=dev
+      - PORT=4000
+    expose: 
+      - 4000
+    ports: 
+      - 4000:4000
+
+  client:
+    build: ../frontend
+    expose: 
+      - 9000
+    ports: 
+      - 9000:9000
+

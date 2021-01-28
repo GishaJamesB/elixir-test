@@ -6,4 +6,6 @@ COPY . /app/frontend
 
 WORKDIR /app/frontend
 
+RUN npm install
+
 CMD ["npm", "start"]
