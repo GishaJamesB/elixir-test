@@ -2,11 +2,14 @@ defmodule TwtWeb.Router do
   use TwtWeb, :router
 
   pipeline :api do
+    plug CORSPlug, origin: "http://localhost:9000"
     plug :accepts, ["json"]
   end
 
   scope "/api", TwtWeb do
     pipe_through :api
+    get "/tweets", TweetsController, :index
+    post "/tweets", TweetsController, :create
   end
 
   # Enables LiveDashboard only for development

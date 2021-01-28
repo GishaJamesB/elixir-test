@@ -14,17 +14,17 @@ export default function Home() {
     const requestOptions = {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ messages: { message: newTweet, user_id: 1 }})
+      body: JSON.stringify({ message: newTweet, user_id: 1 })
   };
-    fetch('http://localhost:4000/api/messages', requestOptions)
+    fetch('http://localhost:4000/api/tweets', requestOptions)
     setNewTweet('')
     getTweets()
   }
 
   const getTweets = async () => {
-      const response = await fetch('http://localhost:4000/api/messages');
+      const response = await fetch('http://localhost:4000/api/tweets');
       const info = await response.json();
-      setTweets(info.data)
+      setTweets(info)
   };
 
   const handleChange = (event) => {
