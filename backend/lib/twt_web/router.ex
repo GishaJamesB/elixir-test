@@ -10,7 +10,9 @@ defmodule TwtWeb.Router do
     pipe_through :api
     get "/tweets", TweetsController, :index
     post "/tweets", TweetsController, :create
+    post "/retweets", RetweetsController, :create
     options "/tweets", TweetsController, :create
+    options "/retweets", RetweetsController, :create
   end
 
   # Enables LiveDashboard only for development
