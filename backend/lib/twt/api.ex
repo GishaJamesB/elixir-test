@@ -28,4 +28,18 @@ defmodule Twt.Api do
     |> Retweets.changeset(attrs)
     |> Repo.insert()
   end
+  
+  def get_tweets() do
+    {ok, result} = Ecto.Adapters.SQL.query(Twt.Repo, "select tweets.id,tweets.message, r.c as numRetweets from tweets 
+        left join (select count(1) as c, tweet_id from retweets group by tweet_id ) r
+        on tweets.id = r.tweet_id
+        order by r.c desc nulls LAST")
+    columns = result.columns
+    rows = result.rows
+    map = Enum.reduce rows, [], fn row, acc ->
+      #Map.put(acc, row, (columns |> Enum.zip(row)))
+      acc ++ [(columns |> Enum.zip(row))]
+    end
+    map
+  end
 end

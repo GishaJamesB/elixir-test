@@ -13,6 +13,7 @@
 alias Twt.Repo
   alias Twt.Users
   alias Twt.Tweets
+  alias Twt.Retweets
 
 Repo.insert! %Users{
   name: "user-1"
@@ -40,5 +41,20 @@ Repo.insert! %Tweets{
 Repo.insert! %Tweets{
     message: "Serverless framework - Infra as code, good to explore?",
     user_id: 1
+}
+
+Repo.insert! %Retweets{
+    tweet_id: 3,
+    user_id: 1
+}
+
+Repo.insert! %Retweets{
+    tweet_id: 3,
+    user_id: 2
+}
+
+Repo.insert! %Retweets{
+    tweet_id: 2,
+    user_id: 2
 }
 
