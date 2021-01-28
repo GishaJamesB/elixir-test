@@ -44,6 +44,7 @@ defmodule Twt.MixProject do
       {:jason, "~> 1.0"},
       {:plug_cowboy, "~> 2.0"},
       {:cors_plug, "~> 1.5"},
+      {:poison, "~> 3.1"}
     ]
   end
 
